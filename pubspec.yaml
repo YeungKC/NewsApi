@@ -1,5 +1,5 @@
 name: newsapi
-description: newsapi
+description: Use NewsApi service with Dart.
 version: 0.0.1
 author:
 homepage: https://github.com/YeungKC/NewsApi
