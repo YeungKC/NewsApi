@@ -1,3 +1,7 @@
-## [0.0.1] - TODO: Add release date.
+## [1.0.0]
 
-* TODO: Describe initial release.
+* add an example
+
+## [0.0.1]
+
+* init project

@@ -9,15 +9,43 @@ dependencies:
 ## Example
 
 ```Dart
-      NewsApi newsApi = NewsApi();
-      newsApi.init(
-        debugLog: true,
-        apiKey: 'API_KEY',
-      );
+  var newsApi = NewsApi();
+  newsApi.init(
+//    dioOptions: dioOptions,
+//    interceptors: interceptors,
+    debugLog: true,
+    apiKey: 'foo',
+  );
+  
+  newsApi.apiKey = 'bar';
 
-      ... = await newsApi.topHeadlines(language: 'en', ...);
-      ... = await newsApi.topHeadlines(to: DateTime.now(), ...);
-      ... = await newsApi.sources();
+  print(await newsApi.topHeadlines(
+//    country: country,
+//    category: category,
+//    sources: sources,
+//    q: q,
+    language: 'en',
+//    pageSize: pageSize,
+//    page: page,
+  ));
+  print(await newsApi.everything(
+    q: 'flutter',
+//    qInTitle: qInTitle,
+//    sources: sources,
+//    domains: domains,
+//    excludeDomains: excludeDomains,
+//    from: from, // support DateTime or String
+//    to: to, // support DateTime or String
+//    language: language,
+//    sortBy: sortBy,
+//    pageSize: pageSize,
+//    page: page,
+  ));
+  print(await newsApi.sources(
+//    category: category,
+//    language: language,
+//    country: country,
+      ));
 ```
 
 ## Response Structure
