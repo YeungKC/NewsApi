@@ -1,0 +1,46 @@
+import 'package:dio/dio.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:newsapi/newsapi.dart';
+
+import 'api_key.dart';
+
+void main() {
+  NewsApi newsApi;
+  group('test newsApi', () {
+    test('key is not available', () async {
+      newsApi = NewsApi();
+      newsApi.init(
+        debugLog: true,
+        apiKey: 'foo',
+      );
+
+      try {
+        await newsApi.topHeadlines(language: 'en');
+      } catch (e) {
+        expect(e, isA<DioError>());
+        expect(e.response.statusCode, equals(401));
+      }
+    });
+
+    test('change key', () async {
+      newsApi.apiKey = API_KEY;
+
+      var response = await newsApi.topHeadlines(language: 'en');
+      expect(response.status, isTrue);
+    });
+
+    test('DateTime converter', () async {
+      var response = await newsApi.everything(
+        to: DateTime.now()..subtract(Duration(days: 30)),
+        q: 'flutter',
+      );
+
+      expect(response.status, isTrue);
+    });
+
+    test('sources', () async {
+      var response = await newsApi.sources();
+      expect(response.status, isTrue);
+    });
+  });
+}
