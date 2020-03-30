@@ -1,5 +1,9 @@
 # NewsApi
 
+[![Pub](https://img.shields.io/pub/v/newsapi.svg)](https://pub.dartlang.org/packages/newsapi)
+![Dart CI](https://github.com/YeungKC/NewsApi/workflows/Dart%20CI/badge.svg)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/33b83ba4c6834d5a9c76a1b6dfb61bd8)](https://www.codacy.com/manual/YeungKC/NewsApi?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=YeungKC/NewsApi&amp;utm_campaign=Badge_Grade)
+
 Use NewsApi service with Dart
 
 ## Install
@@ -86,5 +90,5 @@ class Source extends Equatable {
 
 ## Start Test
 ```bash
-API_KEY=YOUR_API_KEY pub run test test/newsapi_test.dart
+API_KEY=YOUR_API_KEY pub run test
 ```
