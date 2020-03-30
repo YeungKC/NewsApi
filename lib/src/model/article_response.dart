@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:newsapi/model/article.dart';
-import 'package:newsapi/model/base_response.dart';
+import 'package:newsapi/src/model/article.dart';
+import 'package:newsapi/src/model/base_response.dart';
 
 part 'article_response.g.dart';
 

@@ -11,7 +11,7 @@ main() async {
 
   newsApi.apiKey = 'Change_your_api_key';
 
-  print(await newsApi.topHeadlines(
+  ArticleResponse topHeadlines = await newsApi.topHeadlines(
 //    country: country,
 //    category: category,
 //    sources: sources,
@@ -19,8 +19,9 @@ main() async {
     language: 'en',
 //    pageSize: pageSize,
 //    page: page,
-  ));
-  print(await newsApi.everything(
+  );
+  print(topHeadlines);
+  ArticleResponse everything = await newsApi.everything(
     q: 'flutter',
 //    qInTitle: qInTitle,
 //    sources: sources,
@@ -32,10 +33,12 @@ main() async {
 //    sortBy: sortBy,
 //    pageSize: pageSize,
 //    page: page,
-  ));
-  print(await newsApi.sources(
+  );
+  print(everything);
+  SourceResponse sources = await newsApi.sources(
 //    category: category,
 //    language: language,
 //    country: country,
-      ));
+      );
+  print(sources);
 }

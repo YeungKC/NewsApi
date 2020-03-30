@@ -23,10 +23,10 @@ dependencies:
     debugLog: true,
     apiKey: 'foo',
   );
-  
-  newsApi.apiKey = 'bar';
 
-  print(await newsApi.topHeadlines(
+  newsApi.apiKey = 'Change_your_api_key';
+
+  ArticleResponse topHeadlines = await newsApi.topHeadlines(
 //    country: country,
 //    category: category,
 //    sources: sources,
@@ -34,8 +34,9 @@ dependencies:
     language: 'en',
 //    pageSize: pageSize,
 //    page: page,
-  ));
-  print(await newsApi.everything(
+  );
+  print(topHeadlines);
+  ArticleResponse everything = await newsApi.everything(
     q: 'flutter',
 //    qInTitle: qInTitle,
 //    sources: sources,
@@ -47,12 +48,14 @@ dependencies:
 //    sortBy: sortBy,
 //    pageSize: pageSize,
 //    page: page,
-  ));
-  print(await newsApi.sources(
+  );
+  print(everything);
+  SourceResponse sources = await newsApi.sources(
 //    category: category,
 //    language: language,
 //    country: country,
-      ));
+      );
+  print(sources);
 ```
 
 ## Response Structure
@@ -69,6 +72,10 @@ class BaseResponse extends Equatable {
   int totalResults;
 }
 
+class ArticleResponse extends BaseResponse {
+  List<Article> articles;
+}
+
 class Article extends Equatable {
   Source source;
   String author;
@@ -78,6 +85,10 @@ class Article extends Equatable {
   String title;
   String url;
   String urlToImage;
+}
+
+class SourceResponse extends BaseResponse {
+  List<Source> sources;
 }
 
 class Source extends Equatable {

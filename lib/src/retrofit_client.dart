@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:newsapi/model/article_response.dart';
-import 'package:newsapi/model/source_response.dart';
+import 'package:newsapi/src/model/article_response.dart';
+import 'package:newsapi/src/model/source_response.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'retrofit_client.g.dart';

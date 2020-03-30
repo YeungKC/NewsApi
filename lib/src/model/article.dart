@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:newsapi/model/source.dart';
-import 'package:newsapi/util/date_time_converter.dart';
+import 'package:newsapi/src/model/source.dart';
+import 'package:newsapi/src/util/date_time_converter.dart';
 
 part 'article.g.dart';
 
