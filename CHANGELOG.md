@@ -1,3 +1,7 @@
+## \[1.0.2]
+
+    * organizing a library package
+
 ## \[1.0.1]
 
     * refactor test
