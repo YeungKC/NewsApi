@@ -19,4 +19,4 @@ jobs:
       - name: Install dependencies
         run: pub get
       - name: Run tests
-        run: API_KEY=$API_KEY pub run test
+        run: API_KEY=${{secrets.API_KEY}} pub run test
