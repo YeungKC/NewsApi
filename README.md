@@ -1,5 +1,7 @@
 # NewsApi
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/956e86009b9f44f395dc0d8313e325a0)](https://app.codacy.com/manual/YeungKC/NewsApi?utm_source=github.com&utm_medium=referral&utm_content=YeungKC/NewsApi&utm_campaign=Badge_Grade_Dashboard)
+
 Use NewsApi service with Dart
 
 ## Install
