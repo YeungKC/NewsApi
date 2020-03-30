@@ -1,3 +1,7 @@
+## \[1.0.1]
+
+    * refactor test
+
 ## \[1.0.0]
 
     * add an example
