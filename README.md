@@ -85,12 +85,6 @@ class Source extends Equatable {
 ```
 
 ## Start Test
-Modify test / api_key.dart
-```dart
-const API_KEY = 'API_KEY';
-```
-
-and start
 ```bash
-flutter --no-color test --machine test/newsapi_test.dart
+API_KEY=YOUR_API_KEY pub run test test/newsapi_test.dart
 ```

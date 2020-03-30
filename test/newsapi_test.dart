@@ -1,8 +1,8 @@
-import 'package:dio/dio.dart';
-import 'package:flutter_test/flutter_test.dart';
-import 'package:newsapi/newsapi.dart';
+import 'dart:io';
 
-import 'api_key.dart';
+import 'package:dio/dio.dart';
+import 'package:newsapi/newsapi.dart';
+import 'package:test/test.dart';
 
 void main() {
   NewsApi newsApi;
@@ -10,7 +10,6 @@ void main() {
     test('key is not available', () async {
       newsApi = NewsApi();
       newsApi.init(
-        debugLog: true,
         apiKey: 'foo',
       );
 
@@ -23,7 +22,7 @@ void main() {
     });
 
     test('change key', () async {
-      newsApi.apiKey = API_KEY;
+      newsApi.apiKey = Platform.environment['API_KEY'];
 
       var response = await newsApi.topHeadlines(language: 'en');
       expect(response.status, isTrue);

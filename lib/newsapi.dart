@@ -16,7 +16,7 @@ class NewsApi {
 
   factory NewsApi() => _instance;
 
-  NewsApi._internal() {}
+  NewsApi._internal();
 
   set apiKey(key) {
     assert(_init);
@@ -29,7 +29,7 @@ class NewsApi {
     String apiKey,
     BaseOptions dioOptions,
     List<Interceptor> interceptors,
-    bool debugLog,
+    bool debugLog = false,
   }) {
     if (_init) return;
     _init = true;
@@ -57,7 +57,7 @@ class NewsApi {
         ),
       );
     }
-    if (interceptors != null) {
+    if (interceptors != null && interceptors.isNotEmpty) {
       interceptors.forEach((interceptor) => dio.interceptors.add(interceptor));
     }
 
