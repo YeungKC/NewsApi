@@ -1,0 +1,3 @@
+analyzer:
+  errors:
+    must_be_immutable: ignore

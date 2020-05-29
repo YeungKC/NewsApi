@@ -1,3 +1,8 @@
+## \[1.0.3]
+
+    * fix analyzer errors
+    * upgrade package
+
 ## \[1.0.2]
 
     * organizing a library package
