@@ -1,3 +1,7 @@
+## \[1.0.4]
+
+    * update version to README.md
+
 ## \[1.0.3]
 
     * fix analyzer errors

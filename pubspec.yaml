@@ -1,6 +1,6 @@
 name: newsapi
 description: Use the NewsApi v2 service in Dart. The library has a clear return structure and an easy-to-use API.
-version: 1.0.3
+version: 1.0.4
 homepage: https://github.com/YeungKC/NewsApi
 
 environment:
