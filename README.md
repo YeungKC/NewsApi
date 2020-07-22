@@ -9,7 +9,7 @@ Use NewsApi service with Dart
 ## Install
 ```yaml
 dependencies:
-    newsapi: ^1.0.5
+    newsapi: ^1.0.6
 ```
 
 

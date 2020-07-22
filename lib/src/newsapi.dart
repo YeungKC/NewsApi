@@ -8,8 +8,8 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class NewsApi {
   bool _init = false;
-  Dio dio;
-  RetrofitClient r;
+  Dio _dio;
+  RetrofitClient _r;
   String _apiKey;
 
   static final NewsApi _instance = NewsApi._internal();
@@ -22,7 +22,7 @@ class NewsApi {
     assert(_init);
 
     this._apiKey = key;
-    dio.options.headers['Authorization'] = key;
+    _dio.options.headers['Authorization'] = key;
   }
 
   init({
@@ -42,7 +42,7 @@ class NewsApi {
     dioOptions.contentType = Headers.jsonContentType;
     dioOptions.headers['Authorization'] = this._apiKey;
 
-    dio = Dio(dioOptions);
+    _dio = Dio(dioOptions);
 
     if (debugLog) {
       (interceptors ??= []).add(
@@ -58,12 +58,13 @@ class NewsApi {
       );
     }
     if (interceptors != null && interceptors.isNotEmpty) {
-      interceptors.forEach((interceptor) => dio.interceptors.add(interceptor));
+      interceptors.forEach((interceptor) => _dio.interceptors.add(interceptor));
     }
 
-    r = RetrofitClient(dio);
+    _r = RetrofitClient(_dio);
   }
 
+  /// see more: https://newsapi.org/docs/endpoints/top-headlines
   Future<ArticleResponse> topHeadlines({
     String country,
     String category,
@@ -72,18 +73,18 @@ class NewsApi {
     String language,
     int pageSize,
     int page,
-  }) {
-    return r.topHeadlines(
-      country: country,
-      category: category,
-      sources: sources,
-      q: q,
-      language: language,
-      pageSize: pageSize,
-      page: page,
-    );
-  }
+  }) =>
+      _r.topHeadlines(
+        country: country,
+        category: category,
+        sources: sources,
+        q: q,
+        language: language,
+        pageSize: pageSize,
+        page: page,
+      );
 
+  /// see more: https://newsapi.org/docs/endpoints/everything
   Future<ArticleResponse> everything({
     String q,
     String qInTitle,
@@ -97,7 +98,10 @@ class NewsApi {
     int pageSize,
     int page,
   }) {
-    return r.everything(
+    assert(from is DateTime || from is String);
+    assert(to is DateTime || to is String);
+
+    return _r.everything(
       q: q,
       qInTitle: qInTitle,
       sources: sources,
@@ -112,15 +116,15 @@ class NewsApi {
     );
   }
 
+  /// see more: https://newsapi.org/docs/endpoints/sources
   Future<SourceResponse> sources({
     String category,
     String language,
     String country,
-  }) {
-    return r.sources(
-      category: category,
-      language: language,
-      country: country,
-    );
-  }
+  }) =>
+      _r.sources(
+        category: category,
+        language: language,
+        country: country,
+      );
 }

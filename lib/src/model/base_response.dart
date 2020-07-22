@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'base_response.g.dart';
 
 @JsonSerializable()
-class BaseResponse extends Equatable {
+class BaseResponse with EquatableMixin {
   String code;
   String message;
   @JsonKey(

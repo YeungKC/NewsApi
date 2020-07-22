@@ -7,7 +7,7 @@ part 'article.g.dart';
 
 @DateTimeConverter()
 @JsonSerializable()
-class Article extends Equatable {
+class Article with EquatableMixin {
   Source source;
   String author;
   String content;

@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'source.g.dart';
 
 @JsonSerializable()
-class Source extends Equatable {
+class Source with EquatableMixin {
   String category;
   String country;
   String description;
