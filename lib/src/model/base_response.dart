@@ -28,10 +28,10 @@ class BaseResponse with EquatableMixin {
 
   @override
   List<Object> get props => [
-        this.code,
-        this.message,
-        this.status,
-        this.totalResults,
+        code,
+        message,
+        status,
+        totalResults,
       ];
 
   static statusFromJson(String json) => json == 'ok';

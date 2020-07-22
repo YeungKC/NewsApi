@@ -13,7 +13,7 @@ class SourceResponse extends BaseResponse {
   @override
   List<Object> get props => [
         ...super.props,
-        this.sources,
+        sources,
       ];
 
   factory SourceResponse.fromJson(Map<String, dynamic> json) =>

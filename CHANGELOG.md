@@ -1,3 +1,7 @@
+## \[1.0.7]
+
+    * solve score problem
+    
 ## \[1.0.6]
 
     * update dependencies

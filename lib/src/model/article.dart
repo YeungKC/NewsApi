@@ -30,14 +30,14 @@ class Article with EquatableMixin {
 
   @override
   List<Object> get props => [
-        this.source,
-        this.author,
-        this.content,
-        this.description,
-        this.publishedAt,
-        this.title,
-        this.url,
-        this.urlToImage,
+        source,
+        author,
+        content,
+        description,
+        publishedAt,
+        title,
+        url,
+        urlToImage,
       ];
 
   factory Article.fromJson(Map<String, dynamic> json) =>

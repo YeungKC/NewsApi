@@ -25,13 +25,13 @@ class Source with EquatableMixin {
 
   @override
   List<Object> get props => [
-        this.category,
-        this.country,
-        this.description,
-        this.id,
-        this.language,
-        this.name,
-        this.url,
+        category,
+        country,
+        description,
+        id,
+        language,
+        name,
+        url,
       ];
 
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);

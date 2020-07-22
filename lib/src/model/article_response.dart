@@ -15,7 +15,7 @@ class ArticleResponse extends BaseResponse {
   @override
   List<Object> get props => [
         ...super.props,
-        this.articles,
+        articles,
       ];
 
   factory ArticleResponse.fromJson(Map<String, dynamic> json) =>
