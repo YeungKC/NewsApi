@@ -9,7 +9,7 @@ part of 'retrofit_client.dart';
 class _RetrofitClient implements RetrofitClient {
   _RetrofitClient(this._dio, {this.baseUrl}) {
     ArgumentError.checkNotNull(_dio, '_dio');
-    this.baseUrl ??= 'https://newsapi.org/v2/';
+    baseUrl ??= 'https://newsapi.org/v2/';
   }
 
   final Dio _dio;
@@ -17,22 +17,21 @@ class _RetrofitClient implements RetrofitClient {
   String baseUrl;
 
   @override
-  topHeadlines(
+  Future<ArticleResponse> topHeadlines(
       {country, category, sources, q, language, pageSize, page}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      'country': country,
-      'category': category,
-      'sources': sources,
-      'q': q,
-      'language': language,
-      'pageSize': pageSize,
-      'page': page
+      r'country': country,
+      r'category': category,
+      r'sources': sources,
+      r'q': q,
+      r'language': language,
+      r'pageSize': pageSize,
+      r'page': page
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final Response<Map<String, dynamic>> _result = await _dio.request(
-        'top-headlines',
+    final _result = await _dio.request('top-headlines',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -41,11 +40,11 @@ class _RetrofitClient implements RetrofitClient {
             baseUrl: baseUrl),
         data: _data);
     final value = ArticleResponse.fromJson(_result.data);
-    return Future.value(value);
+    return value;
   }
 
   @override
-  everything(
+  Future<ArticleResponse> everything(
       {q,
       qInTitle,
       sources,
@@ -59,22 +58,21 @@ class _RetrofitClient implements RetrofitClient {
       page}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      'q': q,
-      'qInTitle': qInTitle,
-      'sources': sources,
-      'domains': domains,
-      'excludeDomains': excludeDomains,
-      'from': from,
-      'to': to,
-      'language': language,
-      'sortBy': sortBy,
-      'pageSize': pageSize,
-      'page': page
+      r'q': q,
+      r'qInTitle': qInTitle,
+      r'sources': sources,
+      r'domains': domains,
+      r'excludeDomains': excludeDomains,
+      r'from': from,
+      r'to': to,
+      r'language': language,
+      r'sortBy': sortBy,
+      r'pageSize': pageSize,
+      r'page': page
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final Response<Map<String, dynamic>> _result = await _dio.request(
-        'everything',
+    final _result = await _dio.request('everything',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -83,20 +81,20 @@ class _RetrofitClient implements RetrofitClient {
             baseUrl: baseUrl),
         data: _data);
     final value = ArticleResponse.fromJson(_result.data);
-    return Future.value(value);
+    return value;
   }
 
   @override
-  sources({category, language, country}) async {
+  Future<SourceResponse> sources({category, language, country}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      'category': category,
-      'language': language,
-      'country': country
+      r'category': category,
+      r'language': language,
+      r'country': country
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
-    final Response<Map<String, dynamic>> _result = await _dio.request('sources',
+    final _result = await _dio.request('sources',
         queryParameters: queryParameters,
         options: RequestOptions(
             method: 'GET',
@@ -105,6 +103,6 @@ class _RetrofitClient implements RetrofitClient {
             baseUrl: baseUrl),
         data: _data);
     final value = SourceResponse.fromJson(_result.data);
-    return Future.value(value);
+    return value;
   }
 }

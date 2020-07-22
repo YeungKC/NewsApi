@@ -1,6 +1,6 @@
 import 'package:newsapi/newsapi.dart';
 
-main() async {
+void main() async {
   var newsApi = NewsApi();
   newsApi.init(
 //    dioOptions: dioOptions,
@@ -11,7 +11,7 @@ main() async {
 
   newsApi.apiKey = 'Change_your_api_key';
 
-  ArticleResponse topHeadlines = await newsApi.topHeadlines(
+  var topHeadlines = await newsApi.topHeadlines(
 //    country: country,
 //    category: category,
 //    sources: sources,
@@ -20,8 +20,11 @@ main() async {
 //    pageSize: pageSize,
 //    page: page,
   );
+
+  // ArticleResponse
   print(topHeadlines);
-  ArticleResponse everything = await newsApi.everything(
+
+  var everything = await newsApi.everything(
     q: 'flutter',
 //    qInTitle: qInTitle,
 //    sources: sources,
@@ -34,11 +37,14 @@ main() async {
 //    pageSize: pageSize,
 //    page: page,
   );
+  // ArticleResponse
   print(everything);
-  SourceResponse sources = await newsApi.sources(
+
+  var sources = await newsApi.sources(
 //    category: category,
 //    language: language,
 //    country: country,
       );
+  // SourceResponse
   print(sources);
 }

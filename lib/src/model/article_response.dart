@@ -20,5 +20,7 @@ class ArticleResponse extends BaseResponse {
 
   factory ArticleResponse.fromJson(Map<String, dynamic> json) =>
       _$ArticleResponseFromJson(json);
+
+  @override
   Map<String, dynamic> toJson() => _$ArticleResponseToJson(this);
 }

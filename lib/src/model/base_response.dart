@@ -3,6 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'base_response.g.dart';
 
+/// see more: https://newsapi.org/docs/errors
 @JsonSerializable()
 class BaseResponse with EquatableMixin {
   String code;
@@ -34,6 +35,6 @@ class BaseResponse with EquatableMixin {
         totalResults,
       ];
 
-  static statusFromJson(String json) => json == 'ok';
-  static statusToJson(bool status) => status ? 'ok' : 'error';
+  static bool statusFromJson(String json) => json == 'ok';
+  static String statusToJson(bool status) => status ? 'ok' : 'error';
 }

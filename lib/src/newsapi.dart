@@ -1,6 +1,7 @@
 library newsapi;
 
 import 'package:dio/dio.dart';
+import 'package:meta/meta.dart';
 import 'package:newsapi/src/model/article_response.dart';
 import 'package:newsapi/src/model/source_response.dart';
 import 'package:newsapi/src/retrofit_client.dart';
@@ -14,33 +15,37 @@ class NewsApi {
 
   static final NewsApi _instance = NewsApi._internal();
 
+  /// single instance constructor
   factory NewsApi() => _instance;
 
   NewsApi._internal();
 
+  /// you can change the key at any time
   set apiKey(key) {
     assert(_init);
 
-    this._apiKey = key;
+    _apiKey = key;
     _dio.options.headers['Authorization'] = key;
   }
 
-  init({
-    String apiKey,
+  /// only need to be initialized once
+  void init({
+    @required String apiKey,
     BaseOptions dioOptions,
     List<Interceptor> interceptors,
     bool debugLog = false,
   }) {
+    assert(apiKey != null);
+
     if (_init) return;
     _init = true;
 
-    assert(apiKey != null);
-    this._apiKey = apiKey;
+    _apiKey = apiKey;
 
     dioOptions ??= BaseOptions();
     dioOptions.responseType = ResponseType.json;
     dioOptions.contentType = Headers.jsonContentType;
-    dioOptions.headers['Authorization'] = this._apiKey;
+    dioOptions.headers['Authorization'] = _apiKey;
 
     _dio = Dio(dioOptions);
 
@@ -98,8 +103,8 @@ class NewsApi {
     int pageSize,
     int page,
   }) {
-    assert(from is DateTime || from is String);
-    assert(to is DateTime || to is String);
+    if (from != null) assert(from is DateTime || from is String);
+    if (to != null) assert(to is DateTime || to is String);
 
     return _r.everything(
       q: q,

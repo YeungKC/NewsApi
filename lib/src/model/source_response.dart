@@ -19,5 +19,6 @@ class SourceResponse extends BaseResponse {
   factory SourceResponse.fromJson(Map<String, dynamic> json) =>
       _$SourceResponseFromJson(json);
 
+  @override
   Map<String, dynamic> toJson() => _$SourceResponseToJson(this);
 }

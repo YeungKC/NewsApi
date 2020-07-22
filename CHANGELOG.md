@@ -1,3 +1,8 @@
+## \[1.0.8]
+
+    * fix bug
+    * solve score problem
+    
 ## \[1.0.7]
 
     * solve score problem
