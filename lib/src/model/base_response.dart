@@ -6,19 +6,19 @@ part 'base_response.g.dart';
 /// see more: https://newsapi.org/docs/errors
 @JsonSerializable()
 class BaseResponse with EquatableMixin {
-  String code;
-  String message;
+  String? code;
+  String? message;
   @JsonKey(
     fromJson: statusFromJson,
     toJson: statusToJson,
   )
   bool status;
-  int totalResults;
+  int? totalResults;
 
   BaseResponse({
     this.code,
     this.message,
-    this.status,
+    required this.status,
     this.totalResults,
   });
 
@@ -28,7 +28,7 @@ class BaseResponse with EquatableMixin {
   Map<String, dynamic> toJson() => _$BaseResponseToJson(this);
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         code,
         message,
         status,

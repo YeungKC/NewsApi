@@ -1,10 +1,9 @@
 import 'package:newsapi/newsapi.dart';
 
 void main() async {
-  var newsApi = NewsApi();
-  newsApi.init(
-//    dioOptions: dioOptions,
-//    interceptors: interceptors,
+  var newsApi = NewsApi(
+    //  dioOptions: dioOptions,
+    //  interceptors: interceptors,
     debugLog: true,
     apiKey: 'foo',
   );

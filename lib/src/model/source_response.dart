@@ -6,12 +6,15 @@ part 'source_response.g.dart';
 
 @JsonSerializable()
 class SourceResponse extends BaseResponse {
-  List<Source> sources;
+  List<Source>? sources;
 
-  SourceResponse({this.sources});
+  SourceResponse({
+    this.sources,
+    required bool status,
+  }) : super(status: status);
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         ...super.props,
         sources,
       ];

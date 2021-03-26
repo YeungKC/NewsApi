@@ -8,10 +8,10 @@ part of 'base_response.dart';
 
 BaseResponse _$BaseResponseFromJson(Map<String, dynamic> json) {
   return BaseResponse(
-    code: json['code'] as String,
-    message: json['message'] as String,
+    code: json['code'] as String?,
+    message: json['message'] as String?,
     status: BaseResponse.statusFromJson(json['status'] as String),
-    totalResults: json['totalResults'] as int,
+    totalResults: json['totalResults'] as int?,
   );
 }
 

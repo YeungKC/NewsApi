@@ -16,13 +16,13 @@ dependencies:
 ## Example
 
 ```Dart
-  var newsApi = NewsApi();
-  newsApi.init(
-//    dioOptions: dioOptions,
-//    interceptors: interceptors,
-    debugLog: true,
-    apiKey: 'foo',
+  var newsApi = NewsApi(
+  //  dioOptions: dioOptions,
+  //  interceptors: interceptors,
+  debugLog: true,
+  apiKey: 'foo',
   );
+
 
   newsApi.apiKey = 'Change_your_api_key';
 

@@ -5,26 +5,26 @@ part 'source.g.dart';
 
 @JsonSerializable()
 class Source with EquatableMixin {
-  String category;
-  String country;
-  String description;
-  String id;
-  String language;
+  String? category;
+  String? country;
+  String? description;
+  String? id;
+  String? language;
   String name;
-  String url;
+  String? url;
 
   Source({
-    this.category,
-    this.country,
-    this.description,
-    this.id,
-    this.language,
-    this.name,
-    this.url,
+    required this.category,
+    required this.country,
+    required this.description,
+    required this.id,
+    required this.language,
+    required this.name,
+    required this.url,
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         category,
         country,
         description,

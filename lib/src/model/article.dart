@@ -9,7 +9,7 @@ part 'article.g.dart';
 @JsonSerializable()
 class Article with EquatableMixin {
   Source source;
-  String author;
+  String? author;
   String content;
   String description;
   DateTime publishedAt;
@@ -18,18 +18,18 @@ class Article with EquatableMixin {
   String urlToImage;
 
   Article({
-    this.source,
-    this.author,
-    this.content,
-    this.description,
-    this.publishedAt,
-    this.title,
-    this.url,
-    this.urlToImage,
+    required this.source,
+    required this.author,
+    required this.content,
+    required this.description,
+    required this.publishedAt,
+    required this.title,
+    required this.url,
+    required this.urlToImage,
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         source,
         author,
         content,

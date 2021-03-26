@@ -1,3 +1,9 @@
+## \[2.0.0]
+
+- migrated to null safety
+- update dependencies
+- remove NewsApi.init()
+
 ## \[1.0.9]
 
 - fix dependencies problem ([#2](https://github.com/YeungKC/NewsApi/issues/2))

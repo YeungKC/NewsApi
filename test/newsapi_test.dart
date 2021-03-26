@@ -5,19 +5,16 @@ import 'package:newsapi/newsapi.dart';
 import 'package:test/test.dart';
 
 void main() {
-  NewsApi newsApi;
+  late NewsApi newsApi;
   group('test newsApi', () {
     test('key is not available', () async {
-      newsApi = NewsApi();
-      newsApi.init(
-        apiKey: 'foo',
-      );
+      newsApi = NewsApi(apiKey: 'foo');
 
       try {
         await newsApi.topHeadlines(language: 'en');
       } catch (e) {
         expect(e, isA<DioError>());
-        expect(e.response.statusCode, equals(401));
+        expect((e as DioError).response!.statusCode, equals(401));
       }
     });
 

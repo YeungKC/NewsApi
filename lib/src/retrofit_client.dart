@@ -11,34 +11,34 @@ abstract class RetrofitClient {
 
   @GET('top-headlines')
   Future<ArticleResponse> topHeadlines({
-    @Query('country') String country,
-    @Query('category') String category,
-    @Query('sources') String sources,
-    @Query('q') String q,
-    @Query('language') String language,
-    @Query('pageSize') int pageSize,
-    @Query('page') int page,
+    @Query('country') String? country,
+    @Query('category') String? category,
+    @Query('sources') String? sources,
+    @Query('q') String? q,
+    @Query('language') String? language,
+    @Query('pageSize') int? pageSize,
+    @Query('page') int? page,
   });
 
   @GET('everything')
   Future<ArticleResponse> everything({
-    @Query('q') String q,
-    @Query('qInTitle') String qInTitle,
-    @Query('sources') String sources,
-    @Query('domains') String domains,
-    @Query('excludeDomains') String excludeDomains,
-    @Query('from') String from,
-    @Query('to') String to,
-    @Query('language') String language,
-    @Query('sortBy') String sortBy,
-    @Query('pageSize') int pageSize,
-    @Query('page') int page,
+    @Query('q') String? q,
+    @Query('qInTitle') String? qInTitle,
+    @Query('sources') String? sources,
+    @Query('domains') String? domains,
+    @Query('excludeDomains') String? excludeDomains,
+    @Query('from') String? from,
+    @Query('to') String? to,
+    @Query('language') String? language,
+    @Query('sortBy') String? sortBy,
+    @Query('pageSize') int? pageSize,
+    @Query('page') int? page,
   });
 
   @GET('sources')
   Future<SourceResponse> sources({
-    @Query('category') String category,
-    @Query('language') String language,
-    @Query('country') String country,
+    @Query('category') String? category,
+    @Query('language') String? language,
+    @Query('country') String? country,
   });
 }

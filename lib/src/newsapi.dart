@@ -1,45 +1,18 @@
 library newsapi;
 
 import 'package:dio/dio.dart';
-import 'package:meta/meta.dart';
 import 'package:newsapi/src/model/article_response.dart';
 import 'package:newsapi/src/model/source_response.dart';
 import 'package:newsapi/src/retrofit_client.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class NewsApi {
-  bool _init = false;
-  Dio _dio;
-  RetrofitClient _r;
-  String _apiKey;
-
-  static final NewsApi _instance = NewsApi._internal();
-
-  /// single instance constructor
-  factory NewsApi() => _instance;
-
-  NewsApi._internal();
-
-  /// you can change the key at any time
-  set apiKey(key) {
-    assert(_init);
-
-    _apiKey = key;
-    _dio.options.headers['Authorization'] = key;
-  }
-
-  /// only need to be initialized once
-  void init({
-    @required String apiKey,
-    BaseOptions dioOptions,
-    List<Interceptor> interceptors,
+  NewsApi({
+    required String apiKey,
+    BaseOptions? dioOptions,
+    List<Interceptor>? interceptors,
     bool debugLog = false,
   }) {
-    assert(apiKey != null);
-
-    if (_init) return;
-    _init = true;
-
     _apiKey = apiKey;
 
     dioOptions ??= BaseOptions();
@@ -69,15 +42,27 @@ class NewsApi {
     _r = RetrofitClient(_dio);
   }
 
+  late Dio _dio;
+  late RetrofitClient _r;
+  late String _apiKey;
+
+  /// you can change the key at any time
+  set apiKey(key) {
+    _apiKey = key;
+    _dio.options.headers['Authorization'] = key;
+  }
+
+  String get apiKey => _apiKey;
+
   /// see more: https://newsapi.org/docs/endpoints/top-headlines
   Future<ArticleResponse> topHeadlines({
-    String country,
-    String category,
-    String sources,
-    String q,
-    String language,
-    int pageSize,
-    int page,
+    String? country,
+    String? category,
+    String? sources,
+    String? q,
+    String? language,
+    int? pageSize,
+    int? page,
   }) =>
       _r.topHeadlines(
         country: country,
@@ -91,17 +76,17 @@ class NewsApi {
 
   /// see more: https://newsapi.org/docs/endpoints/everything
   Future<ArticleResponse> everything({
-    String q,
-    String qInTitle,
-    String sources,
-    String domains,
-    String excludeDomains,
+    String? q,
+    String? qInTitle,
+    String? sources,
+    String? domains,
+    String? excludeDomains,
     dynamic from,
     dynamic to,
-    String language,
-    String sortBy,
-    int pageSize,
-    int page,
+    String? language,
+    String? sortBy,
+    int? pageSize,
+    int? page,
   }) {
     if (from != null) assert(from is DateTime || from is String);
     if (to != null) assert(to is DateTime || to is String);
@@ -123,9 +108,9 @@ class NewsApi {
 
   /// see more: https://newsapi.org/docs/endpoints/sources
   Future<SourceResponse> sources({
-    String category,
-    String language,
-    String country,
+    String? category,
+    String? language,
+    String? country,
   }) =>
       _r.sources(
         category: category,

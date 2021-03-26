@@ -6,14 +6,15 @@ part 'article_response.g.dart';
 
 @JsonSerializable()
 class ArticleResponse extends BaseResponse {
-  List<Article> articles;
+  List<Article>? articles;
 
   ArticleResponse({
     this.articles,
-  });
+    required bool status,
+  }) : super(status: status);
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         ...super.props,
         articles,
       ];

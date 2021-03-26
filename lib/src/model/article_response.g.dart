@@ -8,15 +8,14 @@ part of 'article_response.dart';
 
 ArticleResponse _$ArticleResponseFromJson(Map<String, dynamic> json) {
   return ArticleResponse(
-    articles: (json['articles'] as List)
-        ?.map((e) =>
-            e == null ? null : Article.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    articles: (json['articles'] as List<dynamic>?)
+        ?.map((e) => Article.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    status: BaseResponse.statusFromJson(json['status'] as String),
   )
-    ..code = json['code'] as String
-    ..message = json['message'] as String
-    ..status = BaseResponse.statusFromJson(json['status'] as String)
-    ..totalResults = json['totalResults'] as int;
+    ..code = json['code'] as String?
+    ..message = json['message'] as String?
+    ..totalResults = json['totalResults'] as int?;
 }
 
 Map<String, dynamic> _$ArticleResponseToJson(ArticleResponse instance) =>

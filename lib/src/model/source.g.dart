@@ -8,13 +8,13 @@ part of 'source.dart';
 
 Source _$SourceFromJson(Map<String, dynamic> json) {
   return Source(
-    category: json['category'] as String,
-    country: json['country'] as String,
-    description: json['description'] as String,
-    id: json['id'] as String,
-    language: json['language'] as String,
+    category: json['category'] as String?,
+    country: json['country'] as String?,
+    description: json['description'] as String?,
+    id: json['id'] as String?,
+    language: json['language'] as String?,
     name: json['name'] as String,
-    url: json['url'] as String,
+    url: json['url'] as String?,
   );
 }
 
